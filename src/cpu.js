@@ -14,7 +14,17 @@ class CPU {
 
         this.registerMap = this.registerNames.reduce((map, name, i) => {
             map[name] = i * 2
+
+            return map
         }, {})
+    }
+
+    getRegister(name) {
+        if (!(name in this.registerMap)) {
+            throw new Error(`[getRegister] REGISTER '${name}' NOT FOUND`)
+        }
+
+        return this.registers.getUint16(this.registerMap[name])
     }
 }
 
