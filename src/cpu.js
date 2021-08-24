@@ -26,6 +26,14 @@ class CPU {
 
         return this.registers.getUint16(this.registerMap[name])
     }
+
+    setRegister(name, value) {
+        if (!(name in this.registerMap)) {
+            throw new Error(`[etRegister] REGISTER '${name}' NOT FOUND`)
+        }
+
+        return this.registers.setUint16(this.registerMap[name], value)
+    }
 }
 
 module.exports = CPU
