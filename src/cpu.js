@@ -11,6 +11,10 @@ class CPU {
         ]
 
         this.registers = createMemory(this.registerNames.length * 2)
+
+        this.registerMap = this.registerNames.reduce((map, name, i) => {
+            map[name] = i * 2
+        }, {})
     }
 }
 
