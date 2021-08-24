@@ -83,6 +83,12 @@ class CPU {
             }
         }
     }
+
+    step() {
+        const instruction = this.fetch()
+
+        return this.execute(instruction)
+    }
 }
 
 module.exports = CPU
