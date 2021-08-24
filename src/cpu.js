@@ -1,4 +1,5 @@
 const createMemory = require("./create-memory")
+const instructions = require("./instructions")
 
 class CPU {
     constructor(memory) {
@@ -55,7 +56,7 @@ class CPU {
 
     execute(instruction) {
         switch (instruction) {
-            case 0x10: { // Move literal into r1 register
+            case instructions.MOV_LIT_R1: { // Move literal into r1 register
                 const literal = this.fetch16()
                 
                 this.setRegister('r1', literal)
@@ -63,7 +64,7 @@ class CPU {
                 return
             }
 
-            case 0x11: { // Move literal into r2 register
+            case instructions.MOV_LIT_R2: { // Move literal into r2 register
                 const literal = this.fetch16()
                 
                 this.setRegister('r2', literal)
@@ -71,7 +72,7 @@ class CPU {
                 return
             }
 
-            case 0x12: { // Add register to register
+            case instructions.ADD_REG_REG: { // Add register to register
                 const r1 = this.fetch()
                 const r2 = this.fetch()
                 const registerValue1 = this.registers.getUint16(r1 * 2);
