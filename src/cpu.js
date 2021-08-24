@@ -34,6 +34,15 @@ class CPU {
 
         return this.registers.setUint16(this.registerMap[name], value)
     }
+
+    fetch() {
+        const nextInstructionAddress = this.getRegister('ip')
+        const instruction = this.memory.getUint8(nextInstructionAddress)
+
+        this.setRegister('ip', nextInstructionAddress + 1)
+
+        return instruction
+    }
 }
 
 module.exports = CPU
