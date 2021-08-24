@@ -18,3 +18,14 @@ writableBytes[5] = 0xCD
 writableBytes[6] = instructions.ADD_REG_REG
 writableBytes[7] = 2 // r1 idx
 writableBytes[8] = 3 // r2 idx
+
+cpu.debug()
+
+cpu.step()
+cpu.debug()
+
+cpu.step()
+cpu.debug()
+
+cpu.step()
+cpu.debug()

@@ -1,8 +1,8 @@
 const createMemory = sizeInBytes => {
-    const arrayBuffer = new ArrayBuffer(sizeInBytes)
-    const dataView = new DataView(arrayBuffer)
+  const ab = new ArrayBuffer(sizeInBytes)
+  const dv = new DataView(ab)
 
-    return dataView
-}
+  return dv
+};
 
 module.exports = createMemory
